@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registo</title>
+    <!--Page Icon-->
+    <link rel="icon" href="/logo.png" type="image/png">
+    <!--CSS link-->
+    <link rel="stylesheet" href="/styles.css">
+    <!--Font import-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Dados de registo</h2>
+        </div>
+        <div class="main">
+            <div class="content">
+                <label for="username">Username</label>
+                <input type="text" id="username" autocomplete="off">
+            </div>
+            <div class="content">
+                <label for="email">E-mail</label>
+                <input type="text" id="email" autocomplete="off">
+            </div>
+            <div class="content">
+                <label for="conf-email">Confirmação de E-mail</label>
+                <input type="text" id="conf-email" autocomplete="off">
+            </div>
+            <div class="content">
+                <label for="password">Palavra-Passe</label>
+                <input type="password" id="password" autocomplete="off">
+            </div>
+            <div class="content-car">
+                <h3>Pretende associar um veículo ao seu perfil?</h3>
+                <div class="car-btns">
+                    <button id="btn-yes">Sim</button>
+                    <button id="btn-no">Não</button>
+                </div>
+                <div class="content">
+                    <label for="brand">Marca do veículo</label>
+                    <input type="text" id="brand" autocomplete="off">
+                </div>
+                <div class="content">
+                    <label for="plate">Matrícula do veículo</label>
+                    <input type="text" id="plate" autocomplete="off" placeholder="00-XX-00">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="content">
+                <input type="submit" value="REGISTAR" id="btn-login">
+                <span id="create-account">Já tem uma conta?<a href="#" id="link-register">Faça Login</a></span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
