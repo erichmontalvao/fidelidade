@@ -41,6 +41,13 @@ input{
     padding: 10px 15px;
 }
 
+select{
+    margin-bottom: 10px;
+    border: 1px solid #6A7178;
+    border-radius: 4px;
+    padding: 10px 15px;
+}
+
 #recover_pw{
     text-decoration: none;
     display: flex;
@@ -110,3 +117,7 @@ input{
     color: white;
     margin-bottom: 20px;
 }
+
+/*.inibida{
+    display: none;
+}*/

@@ -21,12 +21,37 @@
         <div class="header">
             <h2>Dados de registo</h2>
         </div>
-        <form action="novoregistro.php" method="POST">
+        <!--<form action="novoregistro.php" method="POST">-->
         <div class="main">
+
             <div class="content">
-                <label for="username">Username</label>
-                <input type="text" id="username" autocomplete="off">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" autocomplete="off">
             </div>
+
+            <div class="content">
+                <label for="sobrenome">Sobrenome</label>
+                <input type="text" id="sobrenome" autocomplete="off">
+            </div>
+
+            <div class="content">
+                <label for="equipa">Equipa:</label>
+                <select id="equipa" name="equipa">
+                    <option value="0">Escolha a sua equipa</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option value="10">10</option>
+                    
+                </select>
+            </div>    
+
             <div class="content">
                 <label for="email">E-mail</label>
                 <input type="text" id="email" autocomplete="off">
@@ -39,12 +64,15 @@
                 <label for="password">Palavra-Passe</label>
                 <input type="password" id="password" autocomplete="off">
             </div>
+
+            
             <div class="content-car">
                 <h3>Pretende associar um veículo ao seu perfil?</h3>
                 <div class="car-btns">
-                    <button id="btn-yes">Sim</button>
-                    <button id="btn-no">Não</button>
+                    <button type="button" id="btn-yes" onclick="displayDados('dadosveiculo');">Sim</button>
+                    <button type="button" id="btn-no" onclick="esconderDados('dadosveiculo');">Não</button>
                 </div>
+            <div class="inibida" id="dadosveiculo" style="display: none;">
                 <div class="content">
                     <label for="brand">Marca do veículo</label>
                     <input type="text" id="brand" autocomplete="off">
@@ -54,6 +82,7 @@
                     <input type="text" id="plate" autocomplete="off" placeholder="00-XX-00">
                 </div>
             </div>
+            </div>
         </div>
         <div class="footer">
             <div class="content">
@@ -61,8 +90,19 @@
                 <span id="create-account">Já tem uma conta?<a href="login.html" id="link-register">Faça Login</a></span>
             </div>
         </div>
-        </form>
+        <!--</form>-->
     </div>
+
+
 </body>
+
+<script>
+    function displayDados(el) {
+         document.getElementById(el).style.display = 'inline';
+    }
+    function esconderDados(el) {
+         document.getElementById(el).style.display = 'none';
+    }
+</script>
 
 </html>
