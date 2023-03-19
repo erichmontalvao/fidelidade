@@ -26,7 +26,7 @@ h2{
 .content{
     display: flex;
     flex-direction: column;
-    width: 448px;
+    width: 350px;
 }
 
 label{
@@ -56,6 +56,44 @@ select{
     color: #474747;
 }
 
+#btn-confirm:hover{
+    background-color: #c00d10;
+    color: white;
+    border-style: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+}
+
+#btn-confirm{
+    align-content: center;
+    background-color: #EE2427;
+    border-style: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    background-color: #474747;
+    color: white;
+    margin-bottom: 20px;
+}
+#btn-cancel:hover{
+    background-color: #c00d10;
+    color: white;
+    border-style: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+}
+
+#btn-cancel{
+    align-content: center;
+    background-color: #EE2427;
+    border-style: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    background-color: #474747;
+    color: white;
+    margin-bottom: 20px;
+}
 #btn-login{
     background-color: #EE2427;
     color: white;
@@ -99,6 +137,9 @@ select{
 #btn-yes{
     margin-right: 10px;
 }
+#btn-no{
+    margin-right: 10px;
+}
 
 #btn-yes, #btn-no{
     border-style: none;
@@ -118,6 +159,22 @@ select{
     margin-bottom: 20px;
 }
 
-/*.inibida{
-    display: none;
-}*/
+/*
+#btn-login{
+    background-color: #EE2427;
+    color: white;
+    border-style: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+}
+
+#btn-login:hover{
+    background-color: #c00d10;
+    color: white;
+    border-style: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+}
+*/
