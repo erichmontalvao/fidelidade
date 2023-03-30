@@ -22,7 +22,8 @@ $email="";
 
 if (isset($_POST['text_email'])) {
     $utilizador = $_POST['text_email'];
-
+    //armazenando na sessão o email do usuario
+    $_SESSION['email_user']=$utilizador;
    // $password_utilizador = $_POST['text_password'];
 }else{
 
@@ -53,6 +54,9 @@ if ($engine->rowCount() == 0) {
     $nome=$dado_user['name'];
     $email=$dado_user['email'];
     $senha = $dado_user['password_user'];
+
+    //armazenando na sessão o nome de usuario
+    $_SESSION['nome_user']=$nome;
 
 /*    $connection = new PDO("mysql:dbname=$data_base;host=$host", $user, $password);
     $engine = $connection->prepare("UPDATE user SET password_user= ? WHERE email = ?");
@@ -86,13 +90,14 @@ try {
     $mail->addAddress($email);
     $mail->addAddress('erich.montalvao@hotmail.com');
     $mail->addAddress('windson.m.bezerra@gmail.com');
-    $mail->addAddress('beatrizmarcelinoce@gmail.com');
-    $mail->addAddress('tiago11work@gmail.com');
+    //$mail->addAddress('beatrizmarcelinoce@gmail.com');
+    //$mail->addAddress('tiago11work@gmail.com');
+    
 
     $mail->isHTML(true);
-    $mail->Subject = 'Recuperação de Password via gmail do projeto Fidelidade';
-    $mail->Body = 'Olá, '.$nome.'<br>'.'Seu Password é: <strong>'.$senha.'</strong>';
-    $mail->AltBody = 'Recuperação de Password do projeto de fidelidade';
+    $mail->Subject = 'Recuperacao de Password via gmail do projeto Fidelidade';
+    $mail->Body = 'Ola, '.$nome.'<br>'.'<a href = "http://localhost/fidelidade/mudar_pass.php?email='.$email.'">Redefinir</a>' ; 
+    $mail->AltBody = 'Recuperacao de Password do projeto de fidelidade';
 
     if($mail->send()) {
         echo 'Email enviado com sucesso';
