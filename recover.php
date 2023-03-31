@@ -83,16 +83,16 @@ try {
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Username = 'prjfidelidade@gmail.com';
-    $mail->Password = 'ohhklmpqxwasxcok';
+    $mail->Password = 'rpcskemmnshaiooz';
     $mail->Port = 587;
 
     $mail->setFrom('prjfidelidade@gmail.com');
     $mail->addAddress($email);
     $mail->addAddress('erich.montalvao@hotmail.com');
     $mail->addAddress('windson.m.bezerra@gmail.com');
-    //$mail->addAddress('beatrizmarcelinoce@gmail.com');
-    //$mail->addAddress('tiago11work@gmail.com');
-    
+    $mail->addAddress('beatrizmarcelinoce@gmail.com');
+    $mail->addAddress('tiago11work@gmail.com');
+
 
     $mail->isHTML(true);
     $mail->Subject = 'Recuperacao de Password via gmail do projeto Fidelidade';

@@ -37,8 +37,14 @@ use chillerlan\QRCode\QRCodeException;
 use chillerlan\QRCode\Output\QRCodeOutputException;
 
 
+
+
+
+
+
+
 // criar endereço que apontará o qrcode
-$url="https://www.google.com";
+$url="http://localhost/fidelidade/newreservation.php";
 
 //instancia do objeto do qrcode com o endereço apontado
 $qrcode = (new chillerlan\QRCode\QRCode())->render($url);
@@ -46,7 +52,30 @@ $qrcode = (new chillerlan\QRCode\QRCode())->render($url);
 //carregando a imagem do qrcode
 echo "<img src='$qrcode' alt='QRCode'>";
 
-$qr= "<img src='$qrcode' alt='QRCode'> <br>";
+//$qr= "<img src='$qrcode' alt='QRCode'> <br>";
+
+
+/*
+$options = new QROptions([
+    // Número da versão do código QRCode
+    'version'      => 7,
+    // Tipo de saída, utilizado SVG
+    'outputType'   => QRCode::OUTPUT_FPDF,
+    // Define o nível de correção de erro
+    'eccLevel'     => QRCode::ECC_L,
+    // escala da imagem 
+    'scale'        => 4,
+    // Alterar para base64
+    'imageBase64'  => false,
+]);*/
+
+//header('Content-type: application/pdf');
+
+// Gerar QRCode: instanciar a classe QRCode e enviar os dados para o render gerar o QRCode
+//$qrcode2 = (new QRCode($options))->render($data);
+
+
+
 
 // variavel que captura o email da sessão
 $email = $_SESSION['user'];
@@ -78,7 +107,7 @@ if (isset($_SESSION['user'])) {
         */
 
 
-        EnviarEmail($nome,$email,$qr);
+        EnviarEmail($nome,$email,$qrcode);
 
 
 
@@ -93,7 +122,7 @@ if (isset($_SESSION['user'])) {
 
 
 // função que envia o email
-function EnviarEmail($nome,$email,$qr){
+function EnviarEmail($nome,$email,$qrcode){
 
     $mail = new PHPMailer(true);
     
@@ -103,19 +132,24 @@ function EnviarEmail($nome,$email,$qr){
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'prjfidelidade@gmail.com';
-        $mail->Password = 'ohhklmpqxwasxcok';
+        $mail->Password = 'rpcskemmnshaiooz';
         $mail->Port = 587;
     
         $mail->setFrom('prjfidelidade@gmail.com');
         $mail->addAddress($email);
         $mail->addAddress('erich.montalvao@hotmail.com');
         $mail->addAddress('windson.m.bezerra@gmail.com');
-        //$mail->addAddress('beatrizmarcelinoce@gmail.com');
-        //$mail->addAddress('tiago11work@gmail.com');
+        $mail->addAddress('beatrizmarcelinoce@gmail.com');
+        $mail->addAddress('tiago11work@gmail.com');
+
+
+        $mail->AddEmbeddedImage('images/qr.png', 'logo_ref'); 
+        $qrc ="'cid:logo_ref'";
+
     
         $mail->isHTML(true);
         $mail->Subject = 'Confirmacao de Reserva do projeto de fidelidade';
-        $mail->Body = 'Ola, '.$nome.'<br>'. "<img src='$qrcode' alt='QRCODE'> <br>".$qr ; 
+        $mail->Body = 'Ola, '.$nome.'<br>'. "<img src=$qrc alt='QRCODE'> <br>" ; 
         $mail->AltBody = 'Confirmacao de Reserva do projeto de fidelidade';
     
         if($mail->send()) {
